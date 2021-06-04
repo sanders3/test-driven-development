@@ -25,7 +25,8 @@ public final class Circle implements Shape {
         return Math.PI * 2.0 * radius;
     }
 
-    public int getSides() {
-        return 0;
+    @Override
+    public int getNumberOfSides() {
+        return 1;
     }
 }

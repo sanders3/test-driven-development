@@ -21,6 +21,7 @@ public class Square implements Shape {
         return 4 * side;
     }
 
+    @Override
     public int getNumberOfSides() {
         return 4;
     }

@@ -22,7 +22,7 @@ public class CircleTest {
     @Test
     public void testSidesOfCircle() {
         Circle circle = new Circle(5.0);
-        assertThat("A circle doesn't have sides", circle.getSides(), is(0));
+        assertThat("A circle has one sides", circle.getNumberOfSides(), is(1));
     }
 
     @Test
