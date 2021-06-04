@@ -1,6 +1,8 @@
 package com.capgemini.adm.tdd;
 
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.is;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,6 +24,7 @@ public class AppTestIT {
     @Test
     public void shouldAlsoAnswerWithTrue() {
         System.err.println("... running an expensive test ...");
-        assertTrue( true );
+        assertThat( true, is(true) );
+        assertThat("hello, world", containsString("llo") );
     }
 }
