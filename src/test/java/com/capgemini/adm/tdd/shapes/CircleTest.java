@@ -1,12 +1,21 @@
 package com.capgemini.adm.tdd.shapes;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.fail;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class CircleTest {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     @Test
     public void testAreaOfCircle() {
         Circle circle = new Circle(5.0);
@@ -31,4 +40,41 @@ public class CircleTest {
         assertThat("A circle has a diameter which is twice radius", circle.getDiameter(), is(2 * circle.getRadius()));
 
     }
+
+
+    @Test
+    public void checkNegativeRadiusRejected() {
+        
+        try {
+            new Circle(-1.0);
+            fail("exception should have failed");
+        } catch (IllegalArgumentException e) {
+            assertThat(e.getMessage(), containsString("Negative radius"));
+            assertThat(e.getMessage(), containsString(" [-1.0]"));
+        }
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkNegativeRadiusRejected2() {
+        new Circle(-1.0);
+    }
+
+    @Test
+    public void checkNegativeRadiusRejected3() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Negative radius");
+        thrown.expectMessage(" [-1.0]");
+        
+        new Circle(-1.0);
+    }
+    
+    @Test
+    public void checkNegativeRadiusRejected4() {
+
+        assertThrows("negative radius rejected",
+            IllegalArgumentException.class,
+            () -> new Circle(-1.0));
+    }
+
 }
+

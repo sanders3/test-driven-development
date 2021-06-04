@@ -4,6 +4,10 @@ public final class Circle implements Shape {
     private final double radius;
 
     public Circle(double radius) {
+        if (radius < 0.0) {
+            throw new IllegalArgumentException("Negative radius: [" + radius + "]");
+        }
+
         this.radius = radius;
     }
 
