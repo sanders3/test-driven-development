@@ -24,4 +24,11 @@ public class CircleTest {
         Circle circle = new Circle(5.0);
         assertThat("A circle doesn't have sides", circle.getSides(), is(0));
     }
+
+    @Test
+    public void testDiameterOfCircle() {
+        Circle circle = new Circle(5.0);
+        assertThat("A circle has a diameter which is twice radius", circle.getDiameter(), is(2 * circle.getRadius()));
+
+    }
 }
