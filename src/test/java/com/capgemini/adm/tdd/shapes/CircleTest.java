@@ -14,9 +14,9 @@ public class CircleTest {
     }
 
     @Test
-    public void testCircumferenceOfCircle() {
+    public void testPerimeterOfCircle() {
         Circle circle = new Circle(5.0);
-        assertEquals("The circumference of a circle with radius 5 is 31.416", 31.416, circle.getCircumference(), 0.0001);
+        assertEquals("The circumference of a circle with radius 5 is 31.416", 31.416, circle.getPerimeter(), 0.0001);
     }
 
     @Test

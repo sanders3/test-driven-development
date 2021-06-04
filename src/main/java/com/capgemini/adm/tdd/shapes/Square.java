@@ -1,6 +1,6 @@
 package com.capgemini.adm.tdd.shapes;
 
-public class Square {
+public class Square implements Shape {
 
     private final double side;
 
@@ -12,6 +12,7 @@ public class Square {
         return side;
     }
 
+    @Override
     public double getArea() {
         return side * side;
     }

@@ -1,6 +1,6 @@
 package com.capgemini.adm.tdd.shapes;
 
-public final class Circle {
+public final class Circle implements Shape {
     private final double radius;
 
     public Circle(double radius) {
@@ -15,11 +15,13 @@ public final class Circle {
         return 2 * radius;
     }
 
+    @Override
     public double getArea() {
         return Math.PI * radius * radius;
     }
 
-    public double getCircumference() {
+    @Override
+    public double getPerimeter() {
         return Math.PI * 2.0 * radius;
     }
 
